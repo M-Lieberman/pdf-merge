@@ -39,10 +39,9 @@ public class PdfMergeTest {
     }
 
     @Test(expected = FileNotFoundException.class)
-    public void missingFiles() throws IOException {
+    public void missingFilesTest() throws IOException {
         PdfMerge.merge( "unknown.pdf", "unknown.pdf", OUTPUT, true);
     }
-
 
 
 }
