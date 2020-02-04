@@ -6,10 +6,11 @@ import org.apache.pdfbox.pdmodel.PDDocumentInformation;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 public class PdfMerge {
 
-    public static void merge(String file1, String file2, String mergedFile, boolean overwrite) throws IOException {
+    public static void merge(boolean overwrite, String mergedFile, List<String> filenames) throws IOException {
 
         if (new File(mergedFile).exists()) {
             boolean deleted = false;
@@ -31,8 +32,9 @@ public class PdfMerge {
 
         documentInformation.setSubject("Files merged with Apache PDF Box");
 
-        pdfMerger.addSource(new File(file1));
-        pdfMerger.addSource(new File(file2));
+        for(String filename: filenames) {
+            pdfMerger.addSource(new File(filename));
+        }
 
         pdfMerger.mergeDocuments(MemoryUsageSetting.setupMainMemoryOnly());
     }
