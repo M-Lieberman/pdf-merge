@@ -1,3 +1,3 @@
 ## PDF Merge
 
-Simple test Java project to merge two PDFs using Apache PDF Box. Includes unit tests.
+Simple test Java project to merge multiple PDFs using Apache PDF Box. Includes unit tests.
