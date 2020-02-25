@@ -13,7 +13,9 @@ import java.util.List;
 public class PdfMergeTest {
 
     public static final String RELATIVE_PATH = "src/test/resources/";
+    public static final String ABSOLUTE_PATH = "C:/Dev/Resources/pdfmerge/";
     public static final String OUTPUT = RELATIVE_PATH + "merged.pdf";
+    public static final String ABSOLUTE_OUTPUT = ABSOLUTE_PATH + "mergedAbs.pdf";
 
     @Test
     public void merge2PdfsTest() throws IOException {
@@ -54,6 +56,14 @@ public class PdfMergeTest {
         assert(output.exists());
     }
 
+    @Test
+    public void merge2PdfsAbsolutePathTest() throws IOException {
 
+        List<String> filenames = List.of (ABSOLUTE_PATH + "PandPAbs.pdf", ABSOLUTE_PATH + "DorianAbs.pdf");
+        PdfMerge.merge(true, ABSOLUTE_OUTPUT, filenames);
+
+        File output = new File(ABSOLUTE_OUTPUT);
+        assert(output.exists());
+    }
 
 }
